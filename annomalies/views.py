@@ -52,7 +52,7 @@ class parcel(APIView):
         if serializer.is_valid():           
 
             if models.parcel.objects.filter(survey_parcel_no=request.data.get('survey_parcel_no')).exists():
-                return Response ('The parcel already exists ')
+                return Response ('The parcel already exists ', status=status.HTTP_400_BAD_REQUEST)
 
             else :
 
